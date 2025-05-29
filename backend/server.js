@@ -13,13 +13,13 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
 
-const planRoutes = require('./backend/routes/planRoutes');
+const planRoutes = require('./routes/planRoutes');
 app.use('/plans', planRoutes);
 
-const subscriptionRoutes = require('./backend/routes/subscriptionRoutes');
+const subscriptionRoutes = require('./routes/subscriptionRoutes');
 app.use('/subscriptions', subscriptionRoutes);
 
-const userRoutes = require('./backend/routes/userRoutes');
+const userRoutes = require('./routes/userRoutes');
 app.use('/users', userRoutes);
 
 
@@ -32,7 +32,7 @@ mongoose.connect(process.env.MONGO_URI, {
 .then(() => console.log('MongoDB connected'))
 .catch((err) => console.error('MongoDB connection failed:', err));
 
-require('./backend/cron/subscriptionExpiryJob');
+require('./cron/subscriptionExpiryJob');
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
