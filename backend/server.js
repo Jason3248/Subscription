@@ -10,7 +10,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cors({
-  origin: 'https://subscription-eight-sigma.vercel.app/', 
+  origin: 'https://subscription-eight-sigma.vercel.app', 
   credentials: true,
 }));
 app.use(express.urlencoded({ extended: true }));
